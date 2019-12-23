@@ -39,7 +39,18 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
+for i = 1:length(lambda_vec)
+    lambda = lambda_vec(i);
 
+    % For i trg samples,
+    % train linear regression with lambda = 0 to obtain theta.
+    [theta] = trainLinearReg(X, y, lambda); 
+
+    % Compute and store J_train and J_val.
+    [error_train(i)] = linearRegCostFunction(X, y, theta, 0);
+
+    [error_val(i)] = linearRegCostFunction(Xval, yval, theta, 0);
+end
 
 
 
