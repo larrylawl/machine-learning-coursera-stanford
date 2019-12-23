@@ -22,13 +22,11 @@ p = zeros(size(X, 1), 1);
 %
 
 a_1 = [ones(m, 1) X]; % size = [m = 500, n + 1 = 401]
-z_1 = a_1 * Theta1'; % size = [500, 25]
-a_2 = sigmoid(z_1); 
 
+a_2 = sigmoid(a_1 * Theta1'); % size = [500, 25] 
 a_2 = [ones(m, 1) a_2]; % size = [500, 26]
-z_2 = a_2 * Theta2'; % size = [500, 10]
 
-a_3 = sigmoid(z_2); 
+a_3 = sigmoid(a_2 * Theta2'); % size = [500, 10]
 [max_values, indices] = max(a_3, [], 2);
 
 p = indices;

@@ -34,7 +34,6 @@ X = [ones(m, 1) X];
 
 z = X * all_theta'; % size = [m, k]
 g = sigmoid(z);
-disp(g);
 [max_values, indices] = max(g, [], 2); % size = [m, 1]
 p = indices;
 
